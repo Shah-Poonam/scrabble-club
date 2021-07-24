@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="my-4 text-center text-lg-left font-weight-bold"><%= @member.new_record? ? 'New Member' : 'Update Member' %></h2>
+  <%= form_with model: @member, local: true do |f| %>
+    <%= render "shared/error_messages", target: @member %>
+
+    <div class="form-group row">
+      <label class="col-sm-2">First Name *</label>
+      <div class="col-md-6">
+        <%= f.text_field :first_name, required: true, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2">Last Name *</label>
+      <div class="col-md-6">
+        <%= f.text_field :last_name, required: true, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2">Email *</label>
+      <div class="col-md-6">
+        <%= f.email_field :email, required: true, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2">Phone Number *</label>
+      <div class="col-md-6">
+        <%= f.text_field :phone_number, required: true, class: "form-control", pattern: "[1-9]{1}[0-9]{9}", title: "Please enter exactly 10 digits" %>
+      </div>
+    </div>
+
+    <div class="member">
+      <%= f.submit @member.new_record? ? 'Submit' : 'Update', class: 'btn btn-primary text-uppercase' %>
+      <%= link_to 'Back', members_path, class: 'btn btn-secondary text-uppercase' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+  <h1 class="my-4 text-center text-lg-left">Member Detail</h1>
+
+  <div class="form-group row">
+    <strong class="col-md-2">First Name : </strong>
+    <div class="col-md-6">
+      <%= @member.first_name %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Last name : </strong>
+    <div class="col-md-6">
+      <%= @member.last_name %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Email : </strong>
+    <div class="col-md-6">
+      <%= @member.email %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Phone number : </strong>
+    <div class="col-md-6">
+      <%= @member.phone_number %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Number of Wins : </strong>
+    <div class="col-md-6">
+      <%= no_of_wins %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Number of losses : </strong>
+    <div class="col-md-6">
+      <%= no_of_losses %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <strong class="col-md-2">Average Score : </strong>
+    <div class="col-md-6">
+      <%= average_score(@participants) %>
+    </div>
+  </div>
+
+  <p>
+    <% if high_score(@participants) > 0 %>
+      Highest Score of the <b><u> <%= @member.full_name %> </u></b> is <mark><em> <%= high_score(@participants)%></em></mark>. He/She play the match at <b> <%= member_winning_location %> </b> on the date of <b> <%= member_win_date %>.</b> And His/Her opponent player was <b><u> <%= @opponent %> </u></b>.
+    <% else %>
+      He/She didn't play the game.
+    <% end %>
+  </p>
+
+  <%= link_to 'Back', members_path, class: 'btn btn-primary' %>
+</div>

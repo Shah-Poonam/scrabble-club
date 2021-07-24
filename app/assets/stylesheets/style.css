@@ -1,0 +1,31 @@
+/* flash message */
+.alert { position: fixed; top: 67px; padding: 4px; font-size: 14px; width: 77%; margin-left: 164px; left: 0; border-radius: 0px; z-index: 99999; color: #4F8A10; background-color: #DFF2BF; font-weight:300; text-align: center; }
+.remove-alert{ float: right; font-weight: 700; cursor: pointer; }
+p.record_not{ margin: 10px 10px; }
+div.game { margin-left: 26%; }
+div.member { margin-left: 17%; }
+.navbar { top: 11px; }
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff; }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; }

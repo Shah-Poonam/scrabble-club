@@ -1,0 +1,21 @@
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.title %></td>
+    <td><%= game.location %></td>
+    <td><%= game.game_date&.strftime("%b %d %Y") %></td>
+    <% game_participant = game&.participants %>
+    <td>
+      <%= participant1(game_participant) %> | 
+      <%= participant1_score(game_participant) %>
+    </td>
+    <td>
+      <%= participant2(game_participant) %> | 
+      <%= participant2_score(game_participant) %>
+    </td>
+    <td><%= high_score(game_participant) %></td>
+    <td><%= winner(game_participant) %></td>
+    <td>
+      <%= link_to 'Destroy', game_path(game), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>

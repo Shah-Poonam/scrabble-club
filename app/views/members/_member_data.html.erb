@@ -1,0 +1,14 @@
+<% @members.each do |member| %>
+  <tr>
+    <td><%= member&.first_name %></td>
+    <td><%= member&.last_name %></td>
+    <td><%= member&.email %></td>
+    <td><%= member&.phone_number %></td>
+    <td><%= member&.created_at&.strftime("%b %d %Y") %></td>
+    <td>
+      <%= link_to 'Show', member %> |
+      <%= link_to 'Edit', edit_member_path(member) %> |
+      <%= link_to 'Destroy', member_path(member), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>

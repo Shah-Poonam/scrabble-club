@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="my-4 text-center text-lg-left">Members</h1>
+  <%= link_to '+ Add Member', new_member_path, class: 'btn btn-primary btn-sm float-right m-1' %>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Date of Joining Club</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if @members.present? %>
+        <%= render partial: 'member_data' %>
+      <% else %>
+        <tr>
+          <td colspan="6">
+            <p class="record_not text-center"> Record Not Found </p>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

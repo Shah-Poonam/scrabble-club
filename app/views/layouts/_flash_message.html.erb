@@ -1,0 +1,9 @@
+<div class="flash">
+  <% flash.each do |key, value| %>
+    <p class="<%= flash_class(key) %>">
+      <%= value %>
+      <!-- <span class="remove-alert">×</span> -->
+      <% flash.discard(key) %>
+    </p>
+  <% end %>
+</div>

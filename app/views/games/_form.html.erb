@@ -1,0 +1,53 @@
+<div class="container">
+  <h2 class="my-4 text-center text-lg-left font-weight-bold"><%= 'New Game' %></h2>
+  <%= form_with model: @game, local: true do |f| %>
+    <%= render "shared/error_messages", target: @game %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Title *</label>
+          <%= f.text_field :title, required: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Game Date *</label>
+          <%= f.date_field :game_date, required: true, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label>Location *</label>
+          <%= f.text_field :location, required: true, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <%= f.fields_for :participants do |participant_info| %>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= participant_info.label 'Participant *' %>
+            <%= participant_info.collection_select(:member_id, Member.all, :id, :full_name, { include_blank: 'Select Participant'}, { class: 'form-control' }) %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= participant_info.label 'Game Score *' %>
+            <%= participant_info.number_field :score, class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="game my-4">
+      <%= f.submit 'Submit', class: 'btn btn-primary text-uppercase' %>
+      <%= link_to 'Back', games_path, class: 'btn btn-secondary text-uppercase' %>
+    </div>
+  <% end %>
+</div>
